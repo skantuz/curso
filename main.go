@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	r "github.com/skantuz/backend/routes"
+	r "github.com/skantuz/curso/routes"
 )
 
 func main() {

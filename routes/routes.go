@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"github.com/gorilla/mux"
-	c "github.com/skantuz/backend/controllers"
+	c "github.com/skantuz/curso/controllers"
 )
 
 type Route struct {
@@ -44,5 +44,11 @@ var routes = Routes{
 		"GET",
 		"/api",
 		c.Index,
+	},
+	Route{
+		"Create User",
+		"POST",
+		"/api/users",
+		c.CreateUSer,
 	},
 }
