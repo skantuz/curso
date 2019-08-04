@@ -1,22 +1,25 @@
 package main
 
-import(
-	"http"
+import (
+	"log"
+	"net/http"
 	"os"
-	"github.com/skantuz/backend/routes"
+
+	r "github.com/skantuz/backend/routes"
 )
 
-func main(){
+func main() {
 
-	route := routes.NewRouter()
-	port := os.Getenv("sys_port")
-	if ( port == ""){
-		port = "8000"
+	router := r.NewRouter()
+	port := os.Getenv("sys_port") //Get port from .env file, we did not specify any port so this should return an empty string when tested locally
+	if port == "" {
+		port = "8001" //localhost
 	}
-	log.Println("Escuchando en "+port)
 
-	err := http.ListenAndServe(":"+port, route)
-	if err!=nil{
-		log.Fatal(err)
+	log.Println("Listen" + port)
+
+	err := http.ListenAndServe(":"+port, router)
+	if err != nil {
+		log.Print(err)
 	}
 }
